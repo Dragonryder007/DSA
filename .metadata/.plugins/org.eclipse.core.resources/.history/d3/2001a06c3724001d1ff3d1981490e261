@@ -1,0 +1,48 @@
+package training;
+
+import java.util.*;
+
+
+public class RainWater_Prob {
+	
+	public static int solution(int a[]) {
+		int l[]=new int[a.length];
+		int r[]=new int[a.length];
+		
+		l[0]=a[0];		
+		for(int i=0; i<a.length; i++) {
+			if(l[i]<a[i])
+				l[i]=a[i];
+		}
+		
+		r[0]=a[a.length-1];
+		for(int i=a.length-1; i>=0; i--) {
+			if(r[i]<a[i])
+				r[i]=a[i];
+		}
+		
+		int ans=0;
+		for(int i=0; i<a.length; i++) {
+			ans+=Math.min(l[i], r[i])-a[i];
+		}
+		
+		return ans;
+	}
+	
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int a[]=new int[n];
+		
+		for(int i=0; i<n; i++) {
+			a[i]=sc.nextInt();			
+		}
+		
+		int result=solution(a);
+		
+		System.out.println(result);
+		sc.close();
+		
+	}
+
+}

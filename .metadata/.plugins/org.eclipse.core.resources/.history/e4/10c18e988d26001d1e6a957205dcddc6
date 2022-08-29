@@ -1,0 +1,62 @@
+package training;
+
+public class LL2_own {
+	
+	Node head;
+	
+	static class Node{
+		
+		Node next;
+		int data;
+				
+		Node(int d) {
+		  this.data=d;
+		  next=null;
+		}
+	}
+	
+	public static LL2_own insert(int d, LL2_own ls) {
+		// TODO Auto-generated method stub
+		
+		Node toAdd=new Node(d);
+		
+		if(ls.head==null) {
+			ls.head=toAdd;
+		}
+		else {
+			Node last=ls.head;
+			while(last.next!=null) {
+				last=last.next;
+			}
+			last.next=toAdd;
+		}
+		return ls;
+	}
+	
+	public static void print(LL2_own ls) {
+		
+			Node cur=ls.head;
+			while(cur!=null) {
+				System.out.print(cur.data+" ");
+				cur=cur.next;
+			}
+	}
+	
+	public static void main(String args[]) {
+		LL2_own l1 = new LL2_own();
+		LL2_own l2 = new LL2_own();
+		
+		l1=insert(2,l1);
+		l1=insert(4,l1);
+		l1=insert(3,l1);
+		print(l1);
+		
+		System.out.println();
+		
+		l2=insert(5,l2);
+		l2=insert(6,l2);
+		l2=insert(4,l2);
+		print(l2);
+	}
+
+}

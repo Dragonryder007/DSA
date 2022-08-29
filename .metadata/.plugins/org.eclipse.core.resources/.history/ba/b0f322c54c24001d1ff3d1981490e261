@@ -1,0 +1,45 @@
+package training;
+
+import java.util.Scanner;
+
+public class two_sums {
+	
+	 public static int[] twoSum(int[] nums, int target) {
+	        
+		 int r[]=new int[2];
+		 
+		 for(int i=0; i<nums.length; i++) {
+			 for(int j=0; j<nums.length; j++) {
+				 if(nums[i]+nums[j]==target)
+					 r[i]=nums[i];
+			 }
+		 }
+		 
+		 return r;
+		 
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int a[]=new int[n];
+		int res[]=new int[2];
+		
+		for(int i=0; i<n; i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		
+		int t=sc.nextInt();
+		
+		res=twoSum(a,t);
+		for(int i=0; i<res.length; i++)
+			System.out.print(i+" ");
+		
+		sc.close();
+
+	}
+
+}

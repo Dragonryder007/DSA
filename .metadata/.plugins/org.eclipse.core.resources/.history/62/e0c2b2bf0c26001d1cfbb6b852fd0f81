@@ -1,0 +1,83 @@
+package training;
+
+public class LinkedListFunc {
+	
+	Node head;
+	
+	static class Node{
+		
+		Node next;
+		int data;
+		Node(int data) {
+			this.data=data;
+			next=null;
+		}
+		
+	}
+	
+	public static LinkedListFunc insert(int d, LinkedListFunc ls) {
+		
+		Node toAdd = new Node(d);
+		
+		if (ls.head == null) {
+            ls.head = toAdd;
+        }
+		else {
+			Node last=ls.head;
+			while (last.next != null) {
+                last = last.next;
+            }
+			last.next = toAdd;
+        
+		}
+		
+		return ls;
+		
+/*		if(pos==0) {
+			toAdd.next=head;
+			head=toAdd;
+			return;
+
+		}
+		
+		Node prev=head;
+		for(int i=0; i<pos-1; i++) {
+			prev=prev.next;
+		}
+		
+		toAdd.next=prev.next;
+		prev.next=toAdd;
+*/		
+	}
+	
+	public static void printlist(LinkedListFunc  list)
+    {
+        Node currNode = list.head;
+    
+        System.out.print("LinkedList: ");
+    
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            System.out.print(currNode.data + " ");
+    
+            // Go to next node
+            currNode = currNode.next;
+        }
+    }
+
+	
+	public static void main(String args[]) {
+		
+		LinkedListFunc ls=new LinkedListFunc();
+				
+		ls=insert(2,ls);
+		ls=insert(4,ls);
+		ls=insert(3,ls);
+		
+		
+		printlist(ls);
+		
+	}
+
+}

@@ -1,0 +1,38 @@
+package training;
+
+import java.io.*;
+
+class RotArr {
+	public static void main(String[] args) throws IOException
+	{
+	        BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
+            int n = Integer.parseInt(br.readLine().trim());
+            int a[] = new int[n];
+            String inputLine[] = br.readLine().trim().split(" ");
+            for (int i = 0; i < n; i++) {
+                a[i] = Integer.parseInt(inputLine[i]);
+            }
+            
+            Compute obj = new Compute();
+            obj.rotate(a, n);
+            
+            StringBuilder output = new StringBuilder();
+            for(int i=0;i<n;i++)
+                output.append(a[i]+" ");
+            System.out.println(output);
+            
+	}
+}
+
+
+class Compute {
+    
+    public void rotate(int arr[], int n)
+    {
+    	int a[]=new int[n];
+        a=arr.clone();
+        for(int i=0; i<n; i++){
+            arr[(i+n+1)%n]=a[i];
+        }
+    }
+}
